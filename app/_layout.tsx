@@ -25,13 +25,14 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
   });
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
 
   // Handle app state changes
   useAppState((status) => {
     if (status === 'active') {
       // Refresh data when app becomes active
       // apiService.clearCache();
+      console.log('App is active');
     }
   });
 
