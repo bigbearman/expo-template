@@ -1,46 +1,69 @@
-# Welcome to your Expo app 👋
+# Expo Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native application built with Expo, featuring a clean architecture and responsive UI.
 
-## Get started
+## 🚀 Technologies
 
-1. Install dependencies
+- [Expo](https://expo.dev) - Framework and platform for universal React applications
+- [React Native](https://reactnative.dev) - Build native mobile apps using React
+- [NativeWind v4](https://nativewind.dev) - Use Tailwind CSS in React Native
+- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/) - Powerful animation library
+- [Expo Router](https://docs.expo.dev/router/introduction/) - File-based routing system
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management solution
+
+## ✨ Features
+
+- Light and dark mode with system preference detection
+- Modern UI with smooth animations
+- Type-safe development with TypeScript
+- Responsive layouts that work across devices
+
+## 🛠️ Getting Started
+
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Start the development server**
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Run on platforms**
+   - Press `a` for Android
+   - Press `i` for iOS
+   - Press `w` for web
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📁 Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+```
+project-root/
+├── app/            # Main application code with file-based routing
+├── src/
+│   ├── components/ # UI components
+│   ├── hooks/      # Custom React hooks
+│   ├── store/      # State management
+│   └── theme/      # Theming and styling
+├── assets/         # Static assets
+└── babel.config.js # Babel configuration
+```
 
-## Get a fresh project
+## 🧪 Development
 
-When you're ready, run:
+To reset the project to a clean state:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📚 Learn More
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Expo documentation](https://docs.expo.dev/)
+- [React Native documentation](https://reactnative.dev/docs/getting-started)
+- [NativeWind documentation](https://nativewind.dev/)
 
 ## Join the community
 
