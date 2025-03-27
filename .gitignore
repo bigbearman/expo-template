@@ -34,5 +34,51 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
+
+# iOS
+ios/Pods/
+ios/build/
+ios/Podfile.lock
+*.xcworkspace
+*.xcuserstate
+
+# Testing
+coverage/
+__tests__/coverage/
+
+# Bundle artifact
+*.jsbundle
+
+# Ruby / CocoaPods
+/ios/Pods/
+/vendor/bundle/
+
+# Temporary files
+.tmp/
+.temp/
+
+# Logs
+logs
+*.log
+
+# Expo
+.expo-shared/
 
 app-example
