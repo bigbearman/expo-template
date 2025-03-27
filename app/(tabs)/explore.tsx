@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { Animated } from 'react-native';
@@ -51,7 +51,7 @@ export default function LineChartExample() {
   };
 
   // Function to animate between data points
-  const animateToNewData = (newDataset1: number[], newDataset2: number[]) => {
+  const animateToNewData = useCallback((newDataset1: number[], newDataset2: number[]) => {
     // Store the current values as starting point
     prevDataRef.current = {
       dataset1: [...chartData.datasets[0].data],
@@ -73,7 +73,7 @@ export default function LineChartExample() {
       duration: 800,
       useNativeDriver: false,
     }).start();
-  };
+  }, [chartData, animationProgress]);
 
   // Handle animation effect
   useEffect(() => {
@@ -123,7 +123,7 @@ export default function LineChartExample() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [animateToNewData]);
 
   // Chart configuration
   const chartConfig = {

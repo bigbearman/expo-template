@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useThemeStyles } from '../theme/useThemeStyles';
-import { useThemeContext } from '../theme/ThemeContext';
+import { useTheme } from '../theme/ThemeContext';
 
 export const ThemeExample = () => {
   const { createStyles } = useThemeStyles();
-  const { isDark, toggleTheme } = useThemeContext();
+  const { isDark, toggleTheme } = useTheme();
 
   const styles = createStyles((theme) => ({
     container: {

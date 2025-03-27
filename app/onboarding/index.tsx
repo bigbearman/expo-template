@@ -1,13 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useStore } from '@/store/useStore';
 
 export default function Onboarding() {
   const router = useRouter();
+  const { login } = useStore();
 
   const handleConnectGmail = () => {
-    // TODO: Implement Gmail OAuth flow
-    console.log('Connecting to Gmail...');
+    // Simulate successful login
+    login({
+      id: '1',
+      name: 'Demo User',
+      email: 'demo@example.com'
+    });
+    
+    // Router is now used to navigate after login if needed
+    router.replace('/');
   };
 
   return (

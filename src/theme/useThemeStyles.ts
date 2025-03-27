@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { useThemeContext } from './ThemeContext';
-import { Theme } from './index';
+import { useTheme } from './ThemeContext';
+import type { Theme } from './index';
 
 export const useThemeStyles = () => {
-  const { theme } = useThemeContext();
+  const { currentTheme } = useTheme();
 
   const createStyles = (styleCreator: (theme: Theme) => any) => {
-    return StyleSheet.create(styleCreator(theme));
+    return StyleSheet.create(styleCreator(currentTheme));
   };
 
   return {
     createStyles,
-    theme,
+    theme: currentTheme,
   };
 }; 

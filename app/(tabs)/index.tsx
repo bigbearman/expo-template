@@ -5,6 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useToast } from 'react-native-toaster-ui';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function HomeScreen() {
   // Component that uses the toast
@@ -45,6 +46,9 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ToastDemo />
+      <ThemedView style={styles.stepContainer}>
+        <ThemeToggle />
+      </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
