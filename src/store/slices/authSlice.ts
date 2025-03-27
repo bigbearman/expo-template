@@ -1,3 +1,5 @@
+import { User } from "@/types"
+
 interface AuthSlice {
   isAuthenticated: boolean
   user: User | null

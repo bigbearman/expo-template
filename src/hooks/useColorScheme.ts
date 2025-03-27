@@ -1,12 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useColorScheme as useNativeWindColorScheme } from 'nativewind';
 import { ColorSchemeName, useColorScheme as useSystemColorScheme, Appearance } from 'react-native';
 import { useStore } from '@/store/useStore';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
 export function useColorScheme() {
-  const { setColorScheme: setNativeWindColorScheme } = useNativeWindColorScheme();
   const systemColorScheme = useSystemColorScheme();
   const { theme, setTheme } = useStore();
   
@@ -14,10 +12,22 @@ export function useColorScheme() {
     theme === 'system' ? (systemColorScheme || 'light') : theme
   );
 
+  // Apply to document body for web
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (colorScheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, [colorScheme]);
+
   const synchronizeTheme = useCallback((newScheme: ColorSchemeName) => {
     setColorScheme(newScheme);
-    setNativeWindColorScheme(newScheme as 'light' | 'dark');
-  }, [setNativeWindColorScheme]);
+    // Use Appearance API to set the color scheme for native platforms
+    Appearance.setColorScheme(newScheme as 'light' | 'dark' | null);
+  }, []);
 
   useEffect(() => {
     const appearanceListener = Appearance.addChangeListener(({ colorScheme: newColorScheme }) => {
