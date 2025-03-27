@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-native';
-import { useRouter } from 'expo-router';
+import { Redirect } from 'expo-router';
 import { useStore } from '@/store/useStore';
 
 export default function Onboarding() {
-  const router = useRouter();
-  const { login } = useStore();
+  const { login, isAuthenticated } = useStore();
 
   const handleConnectGmail = () => {
     // Simulate successful login
@@ -16,9 +15,11 @@ export default function Onboarding() {
     });
     
     // Router is now used to navigate after login if needed
-    router.replace('/');
+    // router.replace('/');
   };
-
+  if (isAuthenticated) {
+   return <Redirect href="/" />
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
