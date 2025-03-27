@@ -1,11 +1,36 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, Button, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useToast } from 'react-native-toaster-ui';
 
 export default function HomeScreen() {
+  // Component that uses the toast
+  const ToastDemo = () => {
+    const { toast } = useToast();
+
+    const showToast = (variant: 'default' | 'success' | 'error' | 'warning' | 'info') => {
+      toast({
+        title: `${variant.charAt(0).toUpperCase() + variant.slice(1)} Toast`,
+        description: `This is a ${variant} toast notification.`,
+        variant,
+        duration: 3000,
+        position: 'top',
+      });
+    };
+
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 10, marginTop: 10 }}>
+        <Button title="Default Toast" onPress={() => showToast('default')} />
+        <Button title="Success Toast" onPress={() => showToast('success')} />
+        <Button title="Error Toast" onPress={() => showToast('error')} />
+        <Button title="Warning Toast" onPress={() => showToast('warning')} />
+        <Button title="Info Toast" onPress={() => showToast('info')} />
+      </View>
+    );
+  };
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -19,6 +44,7 @@ export default function HomeScreen() {
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
+      <ToastDemo />
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
